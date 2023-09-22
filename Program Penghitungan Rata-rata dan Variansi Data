@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main () {
+    int banyak_murid = 10;
+    double nilai_murid [banyak_murid];
+    double total = 0.0;
+
+    for (int i = 0; i < banyak_murid; i++) {
+        cout << "MASUKKAN NILAI MURID" << i+1 << ":";
+        cin >> nilai_murid [i];
+        total += nilai_murid [i];
+    }
+    
+    double rata_rata;
+    rata_rata = total / banyak_murid;
+    
+    double selisih_kuadrat_total = 0.0;
+    for (int i = 0; i < banyak_murid; i++){
+        double selisih = nilai_murid[i] - rata_rata;
+        selisih_kuadrat_total += pow (selisih, 2);
+    }
+    
+    double variansi;
+    variansi = selisih_kuadrat_total / banyak_murid;
+    
+    double standard_deviasi;
+    standard_deviasi = sqrt(variansi);
+    
+    cout << "RATA-RATA DARI NILAI MURID : " << rata_rata << endl;
+    cout << "VARIANSI DARI NILAI MURID: " << variansi << endl;
+    cout << "STANDARD DEVIASI DARI NILAI MURID: " << standard_deviasi << endl;
+    
+    return 0;
+    
+}
